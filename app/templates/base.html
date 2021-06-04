@@ -1,43 +1,63 @@
-<!DOCTYPE html>
-<html>
-
-<head>
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Flask Foot Pred</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Flask Auth Example</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
-</head>
-
-<body>
-    <section class="hero is-primary is-fullheight">
-
-        <div class="hero-head">
-            <nav class="navbar">
-                <div class="container">
-
-                    <div id="navbarMenuHeroA" class="navbar-menu">
-                        <div class="navbar-end">
-                            <a href="{{ url_for('auth.login') }}" class="navbar-item">
-                                Login
-                            </a>
-                            <a href="{{ url_for('auth.signup') }}" class="navbar-item">
-                                Sign Up
-                            </a>
-                        </div>
-                    </div>
-                    
-                </div>
-            </nav>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href={{ url_for("static", filename ="css/style.css")}}>
+  </head>
+  <body>
+		
+		<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar">
+				<div class="custom-menu">
+					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+	        </button>
         </div>
+        {% if current_user.is_authenticated %}
+	  		<div class="img bg-wrap text-center py-4" style="background-image: url(static/images/bg_1.jpg);">
+	  			<div class="user-logo">
+	  				<div class="img" style="background-image: url(static/images/logo.png);"></div>
+	  				<h3>{{current_user.pseudo}}</h3>
+	  			</div>
+	  		</div>
+        {% else %}
+	  		<div class="img bg-wrap text-center py-4 opac-im" style="background-image: url(static/images/bg_1.jpg);">
+	  			<div class="user-logo">
+	  				<div class="img opac-im" style="background-image: url(static/images/logo.png);"></div>
+	  				<a href="{{ url_for('auth.login') }}" class="page-link">Log In</a>
+	  			</div>
+	  		</div>
+        {% endif %}
+        <ul class="list-unstyled components mb-5">
+          <li>
+            <a href="{{ url_for('main.index') }}"><span class="fa fa-home mr-3"></span> Home</a>
+          </li>
+          <li>
+            <a href="{{ url_for('main.about') }}"><span class="fa fa-support mr-3"></span> About</a>
+          </li>
+          <li>
+            <a href="{{ url_for('main.topbet') }}"><span class="fa fa-trophy mr-3"></span> Top Bet</a>
+          </li>
+          {% if current_user.is_authenticated %}
+          <li>
+            <a href="{{ url_for('auth.logout') }}"><span class="fa fa-sign-out mr-3"></span> Sign Out</a>
+          </li>
+          {% endif %}
+        </ul>
+    	</nav>
 
-        <div class="hero-body">
-            <div class="container has-text-centered">
-               {% block content %}
-               {% endblock %}
-            </div>
-        </div>
-    </section>
-</body>
+        <!-- Page Content  -->
+        {% block content %}
+        {% endblock %}
 
+		</div>
+
+    <script src={{ url_for("static", filename ="js/jquery.min.js")}}></script>
+    <script src={{ url_for("static", filename ="js/popper.js")}}></script>
+    <script src={{ url_for("static", filename ="js/bootstrap.min.js")}}></script>
+    <script src={{ url_for("static", filename ="js/main.js")}}></script>
+  </body>
 </html>
