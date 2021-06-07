@@ -11,6 +11,7 @@ wtforms-sqlalchemy = "*"
 celery = "*"
 gunicorn = "*"
 bs4 = "*"
+requests = "*"
 
 [dev-packages]
 
