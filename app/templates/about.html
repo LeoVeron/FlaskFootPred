@@ -2,7 +2,151 @@
 
 {% block content %}
 <div id="content" class="p-4 p-md-5 pt-5">
-    <h2 class="mb-4">About</h2>
+
+        <div class="row text-center pt-3">
+            <div class="col-lg-6 m-auto">
+                <h1 class="h1">A propos</h1>
+                <p>
+                    FlaskFootPred est un petit projet créé à l'origine pour developper mes competences en developpement python.
+                    Cet application web est créé avec Flask (framework python) et permet d'utiliser un modèle de deep learning que j'ai moi même entrainé afin de prognostiquer le résultat d'un match de football.
+                    Pour en savoir plus:
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="#"><img src="./static/images/about1.png" class="rounded-circle img-fluid border"></a>
+                <div class="text-center mt-3 mb-3">
+                <button type="button" class="btn btn-primary text-center" data-toggle="collapse" data-target="#aboutme" >A propos de moi</button></div>
+
+                <div id="aboutme" class="collapse">
+                    Anciennement ingénieur en simulation
+                    numérique, j'ai 2 ans d’expériences
+                    professionnels en calcul de structure et
+                    création d’outils informatiques dans le
+                    domaine aéronautique.
+                    Aujourd'hui en reconversion vers les métiers
+                    du numérique, je viens de suivre une
+                    formation en Data Science.
+                </div>
+
+            </div>
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="#"><img src="./static/images/about3.png" class="rounded-circle img-fluid border"></a>
+                <div class="text-center mt-3 mb-3">
+                <button type="button" class="btn btn-primary text-center" data-toggle="collapse" data-target="#aboutmodel" >A propos du modèle</button></div>
+
+                <div id="aboutmodel" class="collapse">
+                    Le modèle est un de mes <a href="https://github.com/LeoVeron/footpred">projets</a>. Attention, pour le moment il est très loin d'être terminé et n'est la que pour la vitrine.
+                    C'est un tout petit modèle de deep learning, 3 couches de neuronnes, entrainé sur des donnés de ligne1, ligue2, premier ligue et serie A comprenant :<br>
+                    <br>
+                    tm1_points_h = home points in %<br>
+                    tm1_PPGH_h = Points Per Game at Home<br>
+                    tm1_GS_h = goals score in %<br>
+                    tm1_GC_h = goals conceded in %<br>
+                    tm0_GS_h = League average (% goals)<br>
+                    tm2_points_a = home points in %<br>
+                    tm2_PPGA_a = Points Per Game away<br>
+                    tm2_GS_a = goals score in %<br>
+                    tm2_GC_a = goals conceded in %<br>
+                    tm0_GS_a = League average (% goals)<br>
+                    tm0_PPGH = Points per game <br>
+                    tm1_wins = % Wins <br>
+                    tm2_wins = % Wins <br>
+                    tm0_wins = % Wins <br>
+                    tm1_defeats = % Defeats <br>
+                    tm2_defeats = % Defeats <br>
+                    tm0_defeats = % Defeats <br>
+                    tm1_GSG = Goals scored per game<br>
+                    tm2_GSG = Goals scored per game<br>
+                    tm0_GSG = Goals scored per game<br>
+                    tm1_GCG = Goals conceded per game<br>
+                    tm2_GCG = Goals conceded per game<br>
+                    tm0_GCG = Goals conceded per game<br>
+                    tm1_D = % Draws<br>
+                    tm2_D = % Draws<br>
+                    tm0_D = % Draws<br>
+                    tm1_TGG = Total goals per game<br>
+                    tm2_TGG = Total goals per game<br>
+                    tm0_TGG = Total goals per game<br>
+                    tm1_25 = % matches over 2.5 goals<br>
+                    tm2_25 = % matches over 2.5 goals<br>
+                    tm0_25 = % matches over 2.5 goals<br>
+                    tm1_35 = % matches over 3.5 goals<br>
+                    tm2_35 = % matches over 3.5 goals<br>
+                    tm0_35 = % matches over 3.5 goals<br>
+                    tm1_BTS = % matches where both teams scored<br>
+                    tm2_BTS = % matches where both teams scored<br>
+                    tm0_BTS = % matches where both teams scored<br>
+                    tm0_PPGH_h = Points per game home<br>
+                    tm1_wins_h = % Wins  home<br>
+                    tm0_wins_h = % Wins  home<br>
+                    tm1_defeats_h = % Defeats  home<br>
+                    tm0_defeats_h = % Defeats  home<br>
+                    tm1_GSG_h = Goals scored per game home<br>
+                    tm0_GSG_h = Goals scored per game home<br>
+                    tm1_GCG_h = Goals conceded per game home<br>
+                    tm0_GCG_h = Goals conceded per game home<br>
+                    tm1_D_h = % Draws home<br>
+                    tm0_D_h = % Draws home<br>
+                    tm1_TGG_h = Total goals per game home<br>
+                    tm0_TGG_h = Total goals per game home<br>
+                    tm1_25_h = % matches over 2.5 goals home<br>
+                    tm0_25_h = % matches over 2.5 goals home<br>
+                    tm1_35_h = % matches over 3.5 goals home<br>
+                    tm0_35_h = % matches over 3.5 goals home<br>
+                    tm1_BTS_h = % matches where both teams scored home<br>
+                    tm0_BTS_h = % matches where both teams scored home<br>
+                    tm0_PPGH_a = Points per game away<br>
+                    tm2_wins_a = % Wins  away<br>
+                    tm0_wins_a = % Wins  away<br>
+                    tm2_defeats_a = % Defeats  away<br>
+                    tm0_defeats_a = % Defeats  away<br>
+                    tm2_GSG_a = Goals scored per game away<br>
+                    tm0_GSG_a = Goals scored per game away<br>
+                    tm2_GCG_a = Goals conceded per game away<br>
+                    tm0_GCG_a = Goals conceded per game away<br>
+                    tm2_D_a = % Draws away<br>
+                    tm0_D_a = % Draws away<br>
+                    tm2_TGG_a = Total goals per game away<br>
+                    tm0_TGG_a = Total goals per game away<br>
+                    tm2_25_a = % matches over 2.5 goals away<br>
+                    tm0_25_a = % matches over 2.5 goals away<br>
+                    tm2_35_a = % matches over 3.5 goals away<br>
+                    tm0_35_a = % matches over 3.5 goals away<br>
+                    tm2_BTS_a = % matches where both teams scored away<br>
+                    tm0_BTS_a = % matches where both teams scored away<br>
+                    tm1_ClS_h = Clean sheets home<br>
+                    tm1_WtN_h = Won-to-nil home<br>
+                    tm1_SiBH_h = Scored in both halves home<br>
+                    tm1_BoTS_h = Both teams scored home<br>
+                    tm1_FtS_h = Failed to score home<br>
+                    tm1_LtN_h = Lost-to-nil home<br>
+                    tm1_CiBH_h = Conceded in both halves home<br>
+                    tm2_ClS_h = Clean sheets away<br>
+                    tm2_WtN_h = Won-to-nil away<br>
+                    tm2_SiBH_h = Scored in both halves away<br>
+                    tm2_BoTS_h = Both teams scored away<br>
+                    tm2_FtS_h = Failed to score away<br>
+                    tm2_LtN_h = Lost-to-nil away<br>
+                    tm2_CiBH_h = Conceded in both halves away<br>
+                    scores = Results in goals<br>
+                    tm1_names = team 1 name<br>
+                    tm2_names = team 2 name<br>
+                    urls = url of match data<br>
+                    dates = date of the match
+                </div>
+            </div>
+            <div class="col-12 col-md-4 p-5 mt-3">
+                <a href="#"><img src="./static/images/about2.png" class="rounded-circle img-fluid border"></a>
+                <div class="text-center mt-3 mb-3">
+                <button type="button" class="btn btn-primary text-center" data-toggle="collapse" data-target="#aboutsite" >A propos du site</button></div>
+
+                <div id="aboutsite" class="collapse">
+                    L'application se base sur ce <a href="https://colorlib.com/wp/template/bootstrap-sidebar-09/">template</a>. Le backend est réalisé avec le framework Flask sous python, la base de donnée est en sqlite.
+                </div>
+            </div>
+        </div>
 
 </div>
   
