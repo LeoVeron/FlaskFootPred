@@ -32,8 +32,9 @@ def signup_post():
     # add the new user to the database
     db.session.add(new_user)
     db.session.commit()
-
-    return redirect(url_for('auth.login'))
+    login_user(new_user, remember=True)
+    flash('Account created!', category='success')
+    return redirect(url_for('main.index'))
 
 @auth.route('/login', methods=['POST'])
 def login_post():
@@ -51,6 +52,7 @@ def login_post():
 
     # if the above check passes, then we know the user has the right credentials
     login_user(user, remember=remember)
+    flash('Successfuly loged in!', category='success')
     return redirect(url_for('main.index'))
 
 @auth.route('/logout')

@@ -1,16 +1,17 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from os import path
 
 # init SQLAlchemy so we can use it later in our models
 db = SQLAlchemy()
+DB_NAME = "database.db"
 
 def create_app():
+    
     app = Flask(__name__)
-
-    app.config['SECRET_KEY'] = 'secret-key-goes-here'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
-
+    app.config['SECRET_KEY'] = 'popopIamthesecretKey'
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
     db.init_app(app)
 
     # blueprint for auth routes in our app
@@ -21,6 +22,8 @@ def create_app():
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
+    create_database(app)
+    
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
@@ -34,3 +37,7 @@ def create_app():
     
     return app
 
+def create_database(app):
+    if not path.exists('app/' + DB_NAME):
+        db.create_all(app=app)
+        print('Created Database!')
