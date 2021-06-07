@@ -22,7 +22,7 @@ def create_app():
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
     
-    from .models import User
+    from .models import User, Upcoming_matches
     create_database(app)
     
     login_manager = LoginManager()

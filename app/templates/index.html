@@ -12,8 +12,16 @@
       </div>
     </div>
 
-    <h4 class="mb-4 mt-5">Site en construction</h4>
+    
+    {% if Upcoming_matches == [] %}
+    <h4 class="mb-4 mt-5">Nous n'avons pas trouvé de matches prévus!</h4>
+    {% endif %}
 
+    {% for matches in Upcoming_matches %}
+    <li class="list-group-item">
+      {{ Upcoming_matches.name }}
+    </li>
+    {% endfor %}
     
 </div>
 {% endblock %}

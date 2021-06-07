@@ -10,6 +10,7 @@ flask-login = "*"
 wtforms-sqlalchemy = "*"
 celery = "*"
 gunicorn = "*"
+bs4 = "*"
 
 [dev-packages]
 
