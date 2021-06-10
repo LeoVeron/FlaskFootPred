@@ -1,4 +1,7 @@
-__pycache__
 *.db
+*.pyc
+*.ipynb
+__pycache
+.DS_Store
 app/__pycache__
 app/database.db
