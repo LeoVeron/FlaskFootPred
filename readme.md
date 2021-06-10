@@ -1,16 +1,18 @@
 # FlaskFootPred
 
-FlaskFootPred is a simple project originlly created to improve my skills in those tools:
+FlaskFootPred is a simple project originlly created to learn about flask framework.
+The application is still under development. Fo now, only some pages are created as well as a login system. Users infos are stored in a sqlite database.
 
-- PiPenv packaging tool
-- Flask Framework
-- PostgreSQL database
-- Celery task queue
+![GIF example](./readme_media/Animation.gif)
 
-The final webapp should be able to show you the upcoming ligue 1 matches and the calculated outcome using a deep learning model that I have already created.
-The app should also let you navigate in some of the data use for model training.
+[Heroku app](https://flaskfootpred.herokuapp.com/)
 
-Credits:
+### Main Keyworks:
+Flask, jinja, Blueprint, FlaskLogin, SQLAlchemy
+
+
+
+### Credits:
 * [frontend template](https://colorlib.com/wp/template/bootstrap-sidebar-09/)
 * [tech with tim tuto](https://www.techwithtim.net/tutorials/flask/a-basic-website/)
 * [flasklogin tuto](https://www.digitalocean.com/community/tutorials/how-to-add-authentication-to-your-app-with-flask-login-fr)
