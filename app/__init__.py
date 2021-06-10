@@ -37,6 +37,7 @@ def create_app():
     return app
 
 def create_database(app):
-    if not path.exists('app/' + DB_NAME):
+    csv_path = path.join(path.dirname(path.abspath(__file__)), 'DB_NAME')
+    if not path.exists(csv_path):
         db.create_all(app=app)
-        print('Created Database!')
+        print('Database created!')
